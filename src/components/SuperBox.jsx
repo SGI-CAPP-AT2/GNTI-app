@@ -6,7 +6,7 @@ const SuperBox = ({
     children,
     ...props
 }) =>{
-return <Box bg="canvas.default" {...props}>
+return <Box bg="canvas.default" color="fg.default" {...props}>
     {children}
 </Box>
 };
