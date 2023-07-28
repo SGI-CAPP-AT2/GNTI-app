@@ -2,8 +2,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "prettier"
+    "plugin:react/jsx-runtime"
   ],
   "plugins": ["react-hooks"],
   "env": {
