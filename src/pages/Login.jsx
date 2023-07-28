@@ -1,4 +1,6 @@
-const Login = () =>{
-    return <>Login Page</>
+import { Box } from '@primer/react';
+
+const Login = () => {
+  return <Box>Hey</Box>;
 };
-export default Login
+export default Login;
