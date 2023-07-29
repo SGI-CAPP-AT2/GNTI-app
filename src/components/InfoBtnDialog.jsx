@@ -8,13 +8,21 @@ import {
   Text,
 } from '@primer/react';
 import { useModal } from '../hooks/useModal';
+import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 const InfoBtnDialog = () => {
   const { open, close, isOpen } = useModal();
   return (
     <>
       <IconButton icon={InfoIcon} onClick={open} />
-      <Dialog isOpen={isOpen} onDismiss={close} aria-labelledby="header-id">
+      <Dialog
+        sx={{
+          top: '50px',
+        }}
+        isOpen={isOpen}
+        onDismiss={close}
+        aria-labelledby="header-id"
+      >
         <Dialog.Header id="header-id">Project Details</Dialog.Header>
         <Box p={3}>
           <Text>
@@ -25,10 +33,12 @@ const InfoBtnDialog = () => {
             as a part of curriculum of CO5I & CO6I (MSBTE) of Diploma in{' '}
             <strong>Computer Engineering</strong>
             <AvatarStack alignRight>
-              <Avatar
-                alt="Shubham Ingale"
-                src="https://avatars.githubusercontent.com/SGI-CAPP-AT2"
-              />
+              <Link to="https://avatars.githubusercontent.com/SGI-CAPP-AT2">
+                <Avatar
+                  alt="Shubham Ingale"
+                  src="https://avatars.githubusercontent.com/SGI-CAPP-AT2"
+                />
+              </Link>
               <Avatar
                 alt="GitHub"
                 src="https://avatars.githubusercontent.com/github"
