@@ -6,7 +6,7 @@ const LoginBtnPop = ({ onClick, disabled, message }) => {
       <Button onClick={onClick} disabled={disabled} variant="outline" block>
         Continue With Google
       </Button>
-      <Popover relative open={!!message || !closed} caret="top">
+      <Popover relative open={!!message} caret="top">
         <Popover.Content sx={{ mt: 2 }}>
           <Heading sx={{ fontSize: 2 }}>Sign in Attempt Message</Heading>
           <Text as="p">{message}</Text>
