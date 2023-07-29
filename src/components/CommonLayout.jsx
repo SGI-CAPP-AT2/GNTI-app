@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import SuperBox from './SuperBox';
-import { Box, IconButton, Spinner } from '@primer/react';
+import { Box, Spinner } from '@primer/react';
 import styled from 'styled-components';
-import { ImageIcon, InfoIcon, SearchIcon } from '@primer/octicons-react';
 import InfoBtnDialog from './InfoBtnDialog';
 import { useProfile } from '../context/profile.context';
 const OverflowBox = styled(Box)`
@@ -26,7 +25,7 @@ const NavBar = styled(Box)`
 const CommonLayout = ({ children }) => {
   const [height, setHeight] = useState(0);
   const navbarRef = useRef(null);
-  const { isLoading, profile } = useProfile();
+  const { isLoading } = useProfile();
   useEffect(() => {
     setHeight(navbarRef.current.offsetHeight);
   }, []);
