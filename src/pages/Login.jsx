@@ -1,7 +1,9 @@
 import { Box, Button, Text } from '@primer/react';
+import { useState } from 'react';
 import styled from 'styled-components';
+import TnCTooltipBtn from '../components/Login/TnCTooltipBtn';
 const LoginScreen = styled(Box)`
-  width: 100%;
+  width: calc(100% - 30px);
   max-width: 500px;
   padding: 10px;
   margin: auto;
@@ -11,6 +13,7 @@ const LoginScreen = styled(Box)`
   flex-direction: column;
 `;
 const Login = () => {
+  const [allowed, setAllowed] = useState(false);
   return (
     <Box display="flex" alignItems="center">
       <LoginScreen
@@ -19,8 +22,9 @@ const Login = () => {
         borderBottomColor="border.default"
       >
         <Text textAlign="center">Sign in to continue</Text>
-        <img src="/logo512.png" />
-        <Button variant="outline" block>
+        <br />
+        <TnCTooltipBtn value={allowed} setValue={setAllowed} />
+        <Button disabled={!allowed} variant="outline" block>
           Continue With Google
         </Button>
       </LoginScreen>
