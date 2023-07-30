@@ -6,9 +6,9 @@ import {
   Dialog,
   IconButton,
   Text,
+  Link,
 } from '@primer/react';
 import { useModal } from '../hooks/useModal';
-import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 const InfoBtnDialog = () => {
   const { open, close, isOpen } = useModal();
@@ -33,7 +33,7 @@ const InfoBtnDialog = () => {
             as a part of curriculum of CO5I & CO6I (MSBTE) of Diploma in{' '}
             <strong>Computer Engineering</strong>
             <AvatarStack alignRight>
-              <Link to="https://avatars.githubusercontent.com/SGI-CAPP-AT2">
+              <Link href="https://github.com/SGI-CAPP-AT2">
                 <Avatar
                   alt="Shubham Ingale"
                   src="https://avatars.githubusercontent.com/SGI-CAPP-AT2"
