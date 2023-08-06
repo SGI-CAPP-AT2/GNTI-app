@@ -31,6 +31,15 @@ const ProfileBtnDialog = ({ profile }) => {
       >
         <Dialog.Header id="header-id">Project Details</Dialog.Header>
         <Box p={3}>
+          <Box display="flex" textAlign="center" alignItems="center">
+            <Avatar
+              src={profile.avatar}
+              size={50}
+              square={true}
+              sx={{ margin: 'auto' }}
+            />
+          </Box>
+          <br />
           <Text>
             Name: <strong>{profile.name}</strong>
             <br />
