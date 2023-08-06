@@ -4,6 +4,7 @@ import { Box, Spinner } from '@primer/react';
 import styled from 'styled-components';
 import InfoBtnDialog from './InfoBtnDialog';
 import { useProfile } from '../context/profile.context';
+import ProfileBtnDialog from './ProfileBtnDialog';
 const OverflowBox = styled(Box)`
   overflow: scroll;
   &::-webkit-scrollbar {
@@ -22,10 +23,13 @@ const NavBar = styled(Box)`
     margin-bottom: auto;
   }
 `;
+const M_10 = styled.div`
+  width: 10px;
+`;
 const CommonLayout = ({ children }) => {
   const [height, setHeight] = useState(0);
   const navbarRef = useRef(null);
-  const { isLoading } = useProfile();
+  const { profile, isLoading } = useProfile();
   useEffect(() => {
     setHeight(navbarRef.current.offsetHeight);
   }, []);
@@ -51,8 +55,15 @@ const CommonLayout = ({ children }) => {
         <Box marginRight="auto" marginLeft="10px">
           GNTI @ADYPSOE
         </Box>
-        <Box marginLeft="auto">
+        <Box marginLeft="auto" display="flex" flexDirection="row">
           <InfoBtnDialog />
+
+          {profile && (
+            <>
+              <M_10 />
+              <ProfileBtnDialog profile={profile} />
+            </>
+          )}
         </Box>
       </NavBar>
       <OverflowBox bg="canvas.subtle" height={`calc(100vh - ${height}px)`}>
