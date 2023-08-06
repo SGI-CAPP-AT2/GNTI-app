@@ -3,26 +3,18 @@ import {
   Avatar,
   AvatarStack,
   Box,
-  Dialog,
   IconButton,
   Text,
   Link,
 } from '@primer/react';
 import { useModal } from '../hooks/useModal';
-
+import { Dialog } from './Dialog';
 const InfoBtnDialog = () => {
   const { open, close, isOpen } = useModal();
   return (
     <>
       <IconButton icon={InfoIcon} onClick={open} />
-      <Dialog
-        sx={{
-          top: '50px',
-        }}
-        isOpen={isOpen}
-        onDismiss={close}
-        aria-labelledby="header-id"
-      >
+      <Dialog isOpen={isOpen} onDismiss={close} aria-labelledby="header-id">
         <Dialog.Header id="header-id">Project Details</Dialog.Header>
         <Box p={3}>
           <Text>
