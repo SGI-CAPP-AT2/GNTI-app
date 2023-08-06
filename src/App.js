@@ -1,11 +1,13 @@
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import LoggedInRoute from './routes/LoggedInRoute';
-import Dashboard from './pages/Dashboard';
-import NonLoggedInRoute from './routes/NonLoggedInRoute';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import Dashboard from './pages/Admin/Dashboard';
 import Login from './pages/Login';
 import CommonLayout from './components/CommonLayout';
 import { ThemeProvider } from '@primer/react';
 import { ProfileProvider } from './context/profile.context';
+import PrivateRoutes from './routes/PrivateRoutes';
+import PublicRoutes from './routes/PublicRoutes';
+import Application from './pages/Application';
+import AdminRoutes from './routes/AdminRoutes';
 
 function App() {
   return (
@@ -13,17 +15,18 @@ function App() {
       <ThemeProvider colorMode="auto">
         <ProfileProvider>
           <CommonLayout>
-            <Switch>
-              <LoggedInRoute path="/app">
-                <Dashboard />
-              </LoggedInRoute>
-              <NonLoggedInRoute path="/login">
-                <Login />
-              </NonLoggedInRoute>
-              <Route path="*">
-                <Redirect to="/app" />
+            <Routes>
+              <Route element={<PrivateRoutes />}>
+                <Route element={<AdminRoutes />}>
+                  <Route path="/admin" element={<Dashboard />} />
+                </Route>
+                <Route path="/" element={<Application />} />
               </Route>
-            </Switch>
+              <Route element={<PublicRoutes />}>
+                <Route path="/login" element={<Login />} />
+              </Route>
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
           </CommonLayout>
         </ProfileProvider>
       </ThemeProvider>
