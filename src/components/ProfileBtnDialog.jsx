@@ -66,15 +66,22 @@ const ProfileBtnDialog = ({ profile, signOut }) => {
             )}
           </Box>
         </Box>
-        <Box display="flex" p={2}>
+        <Box
+          display="flex"
+          p={2}
+          borderTop="1px solid"
+          borderTopColor="border.default"
+        >
+          <Button onClick={signOut} variant="danger">
+            Sign out
+          </Button>
           <Button
-            onClick={signOut}
-            variant="danger"
+            onClick={close}
             sx={{
               marginLeft: 'auto',
             }}
           >
-            Sign out
+            Close
           </Button>
         </Box>
       </Dialog>
