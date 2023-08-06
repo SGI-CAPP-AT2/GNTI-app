@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import InfoBtnDialog from './InfoBtnDialog';
 import { useProfile } from '../context/profile.context';
 import ProfileBtnDialog from './ProfileBtnDialog';
+import { ScreenProvider } from '../context/screen.context';
 const OverflowBox = styled(Box)`
   overflow: scroll;
   &::-webkit-scrollbar {
@@ -67,7 +68,11 @@ const CommonLayout = ({ children }) => {
         </Box>
       </NavBar>
       <OverflowBox bg="canvas.subtle" height={`calc(100vh - ${height}px)`}>
-        {!isLoading && children}
+        {!isLoading && (
+          <ScreenProvider navHeight={navbarRef.current.offsetHeight}>
+            {children}
+          </ScreenProvider>
+        )}
         {isLoading && renderLoader()}
       </OverflowBox>
     </SuperBox>
