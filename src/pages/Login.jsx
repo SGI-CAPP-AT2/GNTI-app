@@ -26,7 +26,6 @@ const Login = () => {
       if (additionalUserInfo.isNewUser) {
         await database.ref(`/profiles/${user.uid}`).set({
           name: user.displayName,
-          uid: user.uid,
           createdAt: firebase.database.ServerValue.TIMESTAMP,
         });
       }
