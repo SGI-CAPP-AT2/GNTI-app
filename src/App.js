@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Dashboard from './pages/Admin/Dashboard';
 import Login from './pages/Login';
 import CommonLayout from './components/CommonLayout';
@@ -11,7 +11,7 @@ import AdminRoutes from './routes/AdminRoutes';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ThemeProvider colorMode="auto">
         <ProfileProvider>
           <CommonLayout>
@@ -30,7 +30,7 @@ function App() {
           </CommonLayout>
         </ProfileProvider>
       </ThemeProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
