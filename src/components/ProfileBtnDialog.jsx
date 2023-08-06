@@ -6,6 +6,7 @@ import {
   Text,
   RelativeTime,
   Token,
+  Button,
 } from '@primer/react';
 import { FeedPersonIcon, PasskeyFillIcon } from '@primer/octicons-react';
 import { useModal } from '../hooks/useModal';
@@ -13,9 +14,8 @@ import styled from 'styled-components';
 const M_10 = styled.div`
   width: 10px;
 `;
-const ProfileBtnDialog = ({ profile }) => {
+const ProfileBtnDialog = ({ profile, signOut }) => {
   const { isOpen, open, close } = useModal();
-  console.log(profile);
   return (
     <>
       <IconButton onClick={open} sx={{ padding: 0 }}>
@@ -65,6 +65,17 @@ const ProfileBtnDialog = ({ profile }) => {
               </>
             )}
           </Box>
+        </Box>
+        <Box display="flex" p={2}>
+          <Button
+            onClick={signOut}
+            variant="danger"
+            sx={{
+              marginLeft: 'auto',
+            }}
+          >
+            Sign out
+          </Button>
         </Box>
       </Dialog>
     </>

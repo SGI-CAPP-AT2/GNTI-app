@@ -29,7 +29,7 @@ const M_10 = styled.div`
 const CommonLayout = ({ children }) => {
   const [height, setHeight] = useState(0);
   const navbarRef = useRef(null);
-  const { profile, isLoading } = useProfile();
+  const { profile, isLoading, signOut } = useProfile();
   useEffect(() => {
     setHeight(navbarRef.current.offsetHeight);
   }, []);
@@ -61,7 +61,7 @@ const CommonLayout = ({ children }) => {
           {profile && (
             <>
               <M_10 />
-              <ProfileBtnDialog profile={profile} />
+              <ProfileBtnDialog profile={profile} signOut={signOut} />
             </>
           )}
         </Box>

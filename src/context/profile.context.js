@@ -35,8 +35,11 @@ export const ProfileProvider = ({ children }) => {
       if (userRef) userRef.off();
     };
   }, []);
+  const signOut = () => {
+    auth.signOut();
+  };
   return (
-    <ProfileContext.Provider value={{ profile, isLoading }}>
+    <ProfileContext.Provider value={{ profile, isLoading, signOut }}>
       {children}
     </ProfileContext.Provider>
   );
