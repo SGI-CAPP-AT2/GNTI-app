@@ -29,7 +29,9 @@ const ProfileBtnDialog = ({ profile }) => {
         onDismiss={close}
         aria-labelledby="header-id"
       >
-        <Dialog.Header id="header-id">Project Details</Dialog.Header>
+        <Dialog.Header id="header-id">
+          Profile Details (Data being used by us)
+        </Dialog.Header>
         <Box p={3}>
           <Box display="flex" textAlign="center" alignItems="center">
             <Avatar
