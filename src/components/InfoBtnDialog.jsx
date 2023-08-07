@@ -31,16 +31,16 @@ const InfoBtnDialog = () => {
                   src="https://avatars.githubusercontent.com/SGI-CAPP-AT2"
                 />
               </Link>
-              <Link href="https://github.com/Shirish456">
-                <Avatar
-                  alt="Shirish456"
-                  src="https://avatars.githubusercontent.com/Shirish456"
-                />
-              </Link>
               <Link href="https://github.com/Om-34">
                 <Avatar
                   alt="Atom"
                   src="https://avatars.githubusercontent.com/Om-34"
+                />
+              </Link>
+              <Link href="https://github.com/Shirish456">
+                <Avatar
+                  alt="Shirish456"
+                  src="https://avatars.githubusercontent.com/Shirish456"
                 />
               </Link>
               <Avatar
