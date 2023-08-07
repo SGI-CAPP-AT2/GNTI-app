@@ -37,10 +37,12 @@ const InfoBtnDialog = () => {
                   src="https://avatars.githubusercontent.com/Shirish456"
                 />
               </Link>
-              <Avatar
-                alt="Atom"
-                src="https://avatars.githubusercontent.com/atom"
-              />
+              <Link href="https://github.com/Om-34">
+                <Avatar
+                  alt="Atom"
+                  src="https://avatars.githubusercontent.com/Om-34"
+                />
+              </Link>
               <Avatar
                 alt="Desktop"
                 src="https://avatars.githubusercontent.com/desktop"
