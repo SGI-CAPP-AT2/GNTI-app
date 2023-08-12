@@ -1,5 +1,5 @@
 import { Box, Tooltip, Text } from '@primer/react';
-import { Link } from 'react-router-dom';
+import Link from '../Link';
 const TnCTooltipBtn = () => {
   return (
     <Box display={'flex'} width="100%">
