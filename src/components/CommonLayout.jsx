@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import SuperBox from './SuperBox';
-import { Box, Spinner } from '@primer/react';
+import { Box, Spinner, Button } from '@primer/react';
 import styled from 'styled-components';
 import InfoBtnDialog from './InfoBtnDialog';
 import { useProfile } from '../context/profile.context';
 import ProfileBtnDialog from './ProfileBtnDialog';
 import { ScreenProvider } from '../context/screen.context';
+import { useNavigate } from 'react-router-dom';
 const OverflowBox = styled(Box)`
   overflow: scroll;
   &::-webkit-scrollbar {
@@ -34,6 +35,7 @@ const CommonLayout = ({ children }) => {
   useEffect(() => {
     setHeight(navbarRef.current.offsetHeight);
   }, []);
+  const navigate = useNavigate();
   const renderLoader = () => (
     <Box display="flex" alignItems="center">
       <Spinner
@@ -59,10 +61,15 @@ const CommonLayout = ({ children }) => {
         <Box marginLeft="auto" display="flex" flexDirection="row">
           <InfoBtnDialog />
 
-          {profile && (
+          {profile ? (
             <>
               <M_10 />
               <ProfileBtnDialog profile={profile} signOut={signOut} />
+            </>
+          ) : (
+            <>
+              <M_10 />
+              <Button onClick={() => navigate('/login')}>Sign in</Button>
             </>
           )}
         </Box>
