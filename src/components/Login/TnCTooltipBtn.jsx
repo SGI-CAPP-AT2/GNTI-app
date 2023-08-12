@@ -1,25 +1,13 @@
-import { Checkbox, FormControl, Tooltip } from '@primer/react';
-const TnCTooltipBtn = ({ value, setValue }) => {
+import { Box, Tooltip, Text } from '@primer/react';
+const TnCTooltipBtn = () => {
   return (
-    <>
-      <FormControl
-        sx={{
-          margin: '10px',
-        }}
-      >
-        <Checkbox
-          checked={value}
-          onChange={box => {
-            setValue(box.target.checked);
-          }}
-          id="default-checkbox"
-        />
-        <FormControl.Label>
-          By Signing in or Signing up I allow to collect{' '}
-          <Tooltip aria-label="Email, Name, Avatar"> My Data </Tooltip>
-        </FormControl.Label>
-      </FormControl>
-    </>
+    <Box display={'flex'} width="100%">
+      <Text marginLeft={'auto'} padding={2} color={'fg.subtle'} fontSize="10px">
+        <Tooltip aria-label="We access your Email id, Name, Avatar (READ)">
+          * By Signing in or Signing up you accept Privacy Policy{' '}
+        </Tooltip>
+      </Text>
+    </Box>
   );
 };
 export default TnCTooltipBtn;

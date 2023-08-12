@@ -5,6 +5,7 @@ import TnCTooltipBtn from '../components/Login/TnCTooltipBtn';
 import { auth, database } from '../firebase/firebaseapp';
 import firebase from 'firebase/app';
 import LoginBtnPop from '../components/Login/LoginBtnPop';
+import icon from '../assets/icon.png';
 const LoginScreen = styled(Box)`
   width: calc(100% - 30px);
   max-width: 500px;
@@ -16,7 +17,6 @@ const LoginScreen = styled(Box)`
   flex-direction: column;
 `;
 const Login = () => {
-  const [allowed, setAllowed] = useState(false);
   const [message, setMessage] = useState(null);
   const loginWithGoogle = async () => {
     try {
@@ -42,16 +42,20 @@ const Login = () => {
         borderColor="border.default"
         borderBottomColor="border.default"
       >
-        <Text textAlign="center">Sign in to continue</Text>
+        <Box display="flex">
+          <Box>
+            <img src={icon} height={20} />
+          </Box>
+          <Box margin={'auto'}>
+            <Text textAlign="center">Sign in to continue</Text>
+          </Box>
+        </Box>
         <br />
-        <TnCTooltipBtn value={allowed} setValue={setAllowed} />
-        <LoginBtnPop
-          onClick={loginWithGoogle}
-          disabled={!allowed}
-          message={message}
-        >
+
+        <LoginBtnPop onClick={loginWithGoogle} message={message}>
           Continue With Google
         </LoginBtnPop>
+        <TnCTooltipBtn />
       </LoginScreen>
     </Box>
   );
