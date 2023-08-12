@@ -8,6 +8,7 @@ import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
 import Application from './pages/Application';
 import AdminRoutes from './routes/AdminRoutes';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route element={<PublicRoutes />}>
                 <Route path="/login" element={<Login />} />
               </Route>
+              <Route path="/prpo" element={<PrivacyPolicy />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </CommonLayout>
