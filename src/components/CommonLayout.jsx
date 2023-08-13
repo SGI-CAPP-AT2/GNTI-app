@@ -36,6 +36,7 @@ const CommonLayout = ({ children }) => {
     setHeight(navbarRef.current.offsetHeight);
   }, []);
   const navigate = useNavigate();
+  console.log(isLoading);
   const renderLoader = () => (
     <Box display="flex" alignItems="center">
       <Spinner
@@ -61,17 +62,18 @@ const CommonLayout = ({ children }) => {
         <Box marginLeft="auto" display="flex" flexDirection="row">
           <InfoBtnDialog />
 
-          {profile ? (
-            <>
-              <M_10 />
-              <ProfileBtnDialog profile={profile} signOut={signOut} />
-            </>
-          ) : (
-            <>
-              <M_10 />
-              <Button onClick={() => navigate('/login')}>Sign in</Button>
-            </>
-          )}
+          {!isLoading &&
+            (profile ? (
+              <>
+                <M_10 />
+                <ProfileBtnDialog profile={profile} signOut={signOut} />
+              </>
+            ) : (
+              <>
+                <M_10 />
+                <Button onClick={() => navigate('/login')}>Sign in</Button>
+              </>
+            ))}
         </Box>
       </NavBar>
       <OverflowBox bg="canvas.subtle" height={`calc(100vh - ${height}px)`}>
