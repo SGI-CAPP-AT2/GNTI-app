@@ -6,7 +6,7 @@ import { LogIcon, ChecklistIcon } from '@primer/octicons-react';
 import { useNavigate } from 'react-router-dom';
 const Application = () => {
   const { height, width } = useScreen();
-  const [barH, setBarH] = useState();
+  const [barH, setBarH] = useState(0);
   const navigate = useNavigate();
   const appWidth = width > 750 ? 750 : width - 20;
   return (
