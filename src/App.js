@@ -9,6 +9,7 @@ import PublicRoutes from './routes/PublicRoutes';
 import Application from './pages/Application';
 import AdminRoutes from './routes/AdminRoutes';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import Configure from './pages/Configure';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                 <Route element={<AdminRoutes />}>
                   <Route path="/admin" element={<Dashboard />} />
                 </Route>
+                <Route path="/configure" element={<Configure />} />
                 <Route path="/" element={<Application />} />
               </Route>
               <Route element={<PublicRoutes />}>
