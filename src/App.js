@@ -9,6 +9,7 @@ import PublicRoutes from './routes/PublicRoutes';
 import Application from './pages/Application';
 import AdminRoutes from './routes/AdminRoutes';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import NewToken from './pages/User/NewToken';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
                   <Route path="/admin" element={<Dashboard />} />
                 </Route>
                 <Route path="/" element={<Application />} />
+                <Route path="/user/newtoken" element={<NewToken />} />
               </Route>
               <Route element={<PublicRoutes />}>
                 <Route path="/login" element={<Login />} />
