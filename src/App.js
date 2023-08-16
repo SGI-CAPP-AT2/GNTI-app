@@ -1,17 +1,17 @@
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Dashboard from './pages/Admin/Dashboard';
-import Login from './pages/Login';
+import React from 'react';
 import CommonLayout from './components/CommonLayout';
 import { ThemeProvider } from '@primer/react';
 import { ProfileProvider } from './context/profile.context';
 import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
-import Application from './pages/Application';
 import AdminRoutes from './routes/AdminRoutes';
 import NewToken from './pages/User/NewToken';
 import Document from './pages/docs/Document';
 import LazyLoad from './components/LazyLoad';
-
+const Login = React.lazy(() => import('./pages/Login'));
+const Dashboard = React.lazy(() => import('./pages/Admin/Dashboard'));
+const Application = React.lazy(() => import('./pages/Application'));
 function App() {
   return (
     <HashRouter>
