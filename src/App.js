@@ -8,8 +8,8 @@ import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
 import Application from './pages/Application';
 import AdminRoutes from './routes/AdminRoutes';
-import PrivacyPolicy from './pages/PrivacyPolicy';
 import NewToken from './pages/User/NewToken';
+import Document from './pages/docs/Document';
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
               <Route element={<PublicRoutes />}>
                 <Route path="/login" element={<Login />} />
               </Route>
-              <Route path="/prpo" element={<PrivacyPolicy />} />
+              <Route path="/docs/:docname" element={<Document />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </CommonLayout>
