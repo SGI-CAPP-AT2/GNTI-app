@@ -6,7 +6,7 @@ const TnCTooltipBtn = () => {
       <Text marginLeft={'auto'} padding={2} color={'fg.subtle'} fontSize="10px">
         <Tooltip aria-label="We access your Email id, Name, Avatar (READ)">
           * By Signing in or Signing up you accept{' '}
-          <Link to={'/prpo'}>Privacy Policy</Link>{' '}
+          <Link to={'/docs/privacypolicy'}>Privacy Policy</Link>{' '}
         </Tooltip>
       </Text>
     </Box>
