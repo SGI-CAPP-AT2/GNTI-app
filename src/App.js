@@ -10,6 +10,7 @@ import Application from './pages/Application';
 import AdminRoutes from './routes/AdminRoutes';
 import NewToken from './pages/User/NewToken';
 import Document from './pages/docs/Document';
+import LazyLoad from './components/LazyLoad';
 
 function App() {
   return (
@@ -18,17 +19,20 @@ function App() {
         <ProfileProvider>
           <CommonLayout>
             <Routes>
-              <Route element={<PrivateRoutes />}>
+              <Route element={<LazyLoad element={<PrivateRoutes />} />}>
                 <Route element={<AdminRoutes />}>
                   <Route path="/admin" element={<Dashboard />} />
                 </Route>
                 <Route path="/" element={<Application />} />
                 <Route path="/user/newtoken" element={<NewToken />} />
               </Route>
-              <Route element={<PublicRoutes />}>
+              <Route element={<LazyLoad element={<PublicRoutes />} />}>
                 <Route path="/login" element={<Login />} />
               </Route>
-              <Route path="/docs/:docname" element={<Document />} />
+              <Route
+                path="/docs/:docname"
+                element={<LazyLoad element={<Document />} />}
+              />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </CommonLayout>

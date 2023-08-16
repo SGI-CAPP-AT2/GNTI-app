@@ -7,6 +7,7 @@ import { useProfile } from '../context/profile.context';
 import ProfileBtnDialog from './ProfileBtnDialog';
 import { ScreenProvider } from '../context/screen.context';
 import { useNavigate } from 'react-router-dom';
+import Loader from './Loader';
 const OverflowBox = styled(Box)`
   overflow: scroll;
   &::-webkit-scrollbar {
@@ -37,17 +38,7 @@ const CommonLayout = ({ children }) => {
   }, []);
   const navigate = useNavigate();
   console.log(isLoading);
-  const renderLoader = () => (
-    <Box display="flex" alignItems="center">
-      <Spinner
-        size="large"
-        sx={{
-          margin: 'auto',
-          marginTop: 5,
-        }}
-      />
-    </Box>
-  );
+  const renderLoader = () => <Loader />;
   return (
     <SuperBox>
       <NavBar
