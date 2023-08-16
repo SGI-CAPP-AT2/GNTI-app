@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import SuperBox from './SuperBox';
-import { Box, Spinner, Button } from '@primer/react';
+import { Box, Button } from '@primer/react';
 import styled from 'styled-components';
 import InfoBtnDialog from './InfoBtnDialog';
 import { useProfile } from '../context/profile.context';
