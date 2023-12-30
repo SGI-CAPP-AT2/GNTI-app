@@ -26,7 +26,6 @@ const Application = () => {
             title={'User Options'}
             view={View.gridView}
             options={userOptions}
-            onSelect={item => console.log(item)}
           />
           <SectionHomePage
             width={appWidth}

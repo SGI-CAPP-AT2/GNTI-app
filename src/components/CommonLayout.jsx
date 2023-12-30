@@ -37,7 +37,7 @@ const CommonLayout = ({ children }) => {
     setHeight(navbarRef.current.offsetHeight);
   }, []);
   const navigate = useNavigate();
-  console.log(isLoading);
+  //(isLoading);
   const renderLoader = () => <Loader />;
   return (
     <SuperBox>

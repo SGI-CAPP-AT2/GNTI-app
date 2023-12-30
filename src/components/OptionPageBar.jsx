@@ -9,7 +9,7 @@ const OptionPageBar = ({
   setAquiredHeight,
 }) => {
   const boxRef = useRef(null);
-  console.log(setAquiredHeight);
+  //(setAquiredHeight);
   useEffect(() => {
     setAquiredHeight(boxRef.current.offsetHeight);
   }, [boxRef, setAquiredHeight]);

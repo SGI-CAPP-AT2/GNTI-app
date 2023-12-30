@@ -32,7 +32,7 @@ const Login = () => {
       setMessage('Signed in successfully');
     } catch (e) {
       setMessage(e.message);
-      console.log(e.message);
+      //(e.message);
     }
   };
   return (
