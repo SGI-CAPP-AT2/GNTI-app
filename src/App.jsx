@@ -1,27 +1,29 @@
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
-import React from 'react';
+import { lazy } from 'react';
 import CommonLayout from './components/CommonLayout';
 import { ThemeProvider } from '@primer/react';
 import { ProfileProvider } from './context/profile.context';
 import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
 import AdminRoutes from './routes/AdminRoutes';
-import CreateToken from './pages/User/CreateToken';
-import Document from './pages/docs/Document';
-import LazyLoad from './components/LazyLoad';
-import History from './pages/User/History';
-import BusStatus from './pages/User/BusStatus';
 import VerifierRoutes from './routes/VerifierRoutes';
-import Verify from './pages/Verifier/Verify';
-import DeviceLink from './pages/Verifier/DeviceLink';
-import SetStatus from './pages/Verifier/SetStatus';
-import AddRoute from './pages/Admin/AddRoute';
-import DeleteRoute from './pages/Admin/DeleteRoute';
-import SetRole from './pages/Admin/SetRole';
-import SetDevice from './pages/Admin/SetDevice';
-import BlockDevice from './pages/Admin/BlockDevice';
-const Login = React.lazy(() => import('./pages/Login'));
-const Application = React.lazy(() => import('./pages/Application'));
+import LazyLoad from './components/LazyLoad';
+
+const CreateToken = lazy(() => import('./pages/User/CreateToken'));
+const Document = lazy(() => import('./pages/docs/Document'));
+const History = lazy(() => import('./pages/User/History'));
+const BusStatus = lazy(() => import('./pages/User/BusStatus'));
+const Verify = lazy(() => import('./pages/Verifier/Verify'));
+const DeviceLink = lazy(() => import('./pages/Verifier/DeviceLink'));
+const SetStatus = lazy(() => import('./pages/Verifier/SetStatus'));
+const AddRoute = lazy(() => import('./pages/Admin/AddRoute'));
+const DeleteRoute = lazy(() => import('./pages/Admin/DeleteRoute'));
+const SetRole = lazy(() => import('./pages/Admin/SetRole'));
+const SetDevice = lazy(() => import('./pages/Admin/SetDevice'));
+const BlockDevice = lazy(() => import('./pages/Admin/BlockDevice'));
+const Login = lazy(() => import('./pages/Login'));
+const Application = lazy(() => import('./pages/Application'));
+
 function App() {
   return (
     <HashRouter>
