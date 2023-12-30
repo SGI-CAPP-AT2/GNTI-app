@@ -6,7 +6,7 @@ import { ProfileProvider } from './context/profile.context';
 import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
 import AdminRoutes from './routes/AdminRoutes';
-import NewToken from './pages/User/NewToken';
+import CreateToken from './pages/User/CreateToken';
 import Document from './pages/docs/Document';
 import LazyLoad from './components/LazyLoad';
 const Login = React.lazy(() => import('./pages/Login'));
@@ -24,7 +24,7 @@ function App() {
                   <Route path="/admin" element={<Dashboard />} />
                 </Route>
                 <Route path="/" element={<Application />} />
-                <Route path="/user/newtoken" element={<NewToken />} />
+                <Route path="/user/token" element={<CreateToken />} />
               </Route>
               <Route element={<LazyLoad element={<PublicRoutes />} />}>
                 <Route path="/login" element={<Login />} />
