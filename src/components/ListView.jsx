@@ -1,7 +1,7 @@
 import { Box, Octicon, Text } from '@primer/react';
 import { useNavigate } from 'react-router-dom';
 
-const ListView = ({ width, list, onItemClick }) => {
+const ListView = ({ width, list }) => {
   const navigate = useNavigate();
   return (
     <Box width={width}>
