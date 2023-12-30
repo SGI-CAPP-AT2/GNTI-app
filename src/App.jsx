@@ -14,6 +14,7 @@ import BusStatus from './pages/User/BusStatus';
 import VerifierRoutes from './routes/VerifierRoutes';
 import Verify from './pages/Verifier/Verify';
 import DeviceLink from './pages/Verifier/DeviceLink';
+import SetStatus from './pages/Verifier/SetStatus';
 const Login = React.lazy(() => import('./pages/Login'));
 const Dashboard = React.lazy(() => import('./pages/Admin/Dashboard'));
 const Application = React.lazy(() => import('./pages/Application'));
@@ -31,6 +32,7 @@ function App() {
                 <Route element={<VerifierRoutes />}>
                   <Route path="/vr/verify" element={<Verify />} />
                   <Route path="/vr/link_device" element={<DeviceLink />} />
+                  <Route path="/vr/set_status" element={<SetStatus />} />
                 </Route>
                 <Route path="/" element={<Application />} />
                 <Route path="/user/token" element={<CreateToken />} />
