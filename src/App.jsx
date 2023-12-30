@@ -15,8 +15,12 @@ import VerifierRoutes from './routes/VerifierRoutes';
 import Verify from './pages/Verifier/Verify';
 import DeviceLink from './pages/Verifier/DeviceLink';
 import SetStatus from './pages/Verifier/SetStatus';
+import AddRoute from './pages/Admin/AddRoute';
+import DeleteRoute from './pages/Admin/DeleteRoute';
+import SetRole from './pages/Admin/SetRole';
+import SetDevice from './pages/Admin/SetDevice';
+import BlockDevice from './pages/Admin/BlockDevice';
 const Login = React.lazy(() => import('./pages/Login'));
-const Dashboard = React.lazy(() => import('./pages/Admin/Dashboard'));
 const Application = React.lazy(() => import('./pages/Application'));
 function App() {
   return (
@@ -27,7 +31,11 @@ function App() {
             <Routes>
               <Route element={<LazyLoad element={<PrivateRoutes />} />}>
                 <Route element={<AdminRoutes />}>
-                  <Route path="/admin" element={<Dashboard />} />
+                  <Route path="/admin/add_route" element={<AddRoute />} />
+                  <Route path="/admin/delete_route" element={<DeleteRoute />} />
+                  <Route path="/admin/set_role" element={<SetRole />} />
+                  <Route path="/admin/set_device" element={<SetDevice />} />
+                  <Route path="/admin/block_device" element={<BlockDevice />} />
                 </Route>
                 <Route element={<VerifierRoutes />}>
                   <Route path="/vr/verify" element={<Verify />} />

@@ -88,6 +88,6 @@ export const adminOptions = [
     sub: 'Immediately block a device',
     id: 'blck_dev',
     icon: UnlinkIcon,
-    url: 'block_device',
+    url: '/admin/block_device',
   },
 ];
