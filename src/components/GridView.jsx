@@ -1,5 +1,7 @@
 import { Box, Octicon, Text } from '@primer/react';
-const GridView = ({ width, list, onItemClick }) => {
+import { useNavigate } from 'react-router-dom';
+const GridView = ({ width, list }) => {
+  const navigate = useNavigate();
   return (
     <Box
       width={width - 4}
@@ -7,11 +9,10 @@ const GridView = ({ width, list, onItemClick }) => {
       gridTemplateColumns={'auto auto auto'}
       padding={2}
     >
-      {list.map(({ id, icon, text }) => (
+      {list.map(({ id, icon, text, url }) => (
         <Box
           onClick={() => {
-            onItemClick(id);
-            console.log('clicked');
+            navigate(url);
           }}
           key={id}
           margin={'auto'}

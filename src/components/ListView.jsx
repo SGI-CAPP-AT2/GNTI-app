@@ -1,10 +1,20 @@
 import { Box, Octicon, Text } from '@primer/react';
+import { useNavigate } from 'react-router-dom';
 
-const ListView = ({ width, list }) => {
+const ListView = ({ width, list, onItemClick }) => {
+  const navigate = useNavigate();
   return (
     <Box width={width}>
-      {list.map(({ id, icon, text, sub }) => (
-        <Box key={id} width={width - 10} display={'flex'} margin={'5px'}>
+      {list.map(({ id, icon, text, sub, url }) => (
+        <Box
+          key={id}
+          width={width - 10}
+          display={'flex'}
+          margin={'5px'}
+          onClick={() => {
+            navigate(url);
+          }}
+        >
           <Box width={40} display={'flex'}>
             <Box margin={'auto'}>
               <Octicon icon={icon} size={24} />
