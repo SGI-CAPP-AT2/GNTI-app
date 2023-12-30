@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "GNTI App",
+  "name": "Gateway for Ticket Issueing",
   "icons": [
     {
       "src": "favicon.ico",
