@@ -10,6 +10,7 @@ import CreateToken from './pages/User/CreateToken';
 import Document from './pages/docs/Document';
 import LazyLoad from './components/LazyLoad';
 import History from './pages/User/History';
+import BusStatus from './pages/User/BusStatus';
 const Login = React.lazy(() => import('./pages/Login'));
 const Dashboard = React.lazy(() => import('./pages/Admin/Dashboard'));
 const Application = React.lazy(() => import('./pages/Application'));
@@ -27,6 +28,7 @@ function App() {
                 <Route path="/" element={<Application />} />
                 <Route path="/user/token" element={<CreateToken />} />
                 <Route path="/user/history" element={<History />} />
+                <Route path="/user/bus_status" element={<BusStatus />} />
               </Route>
               <Route element={<LazyLoad element={<PublicRoutes />} />}>
                 <Route path="/login" element={<Login />} />
