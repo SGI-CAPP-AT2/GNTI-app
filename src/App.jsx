@@ -9,6 +9,7 @@ import AdminRoutes from './routes/AdminRoutes';
 import CreateToken from './pages/User/CreateToken';
 import Document from './pages/docs/Document';
 import LazyLoad from './components/LazyLoad';
+import History from './pages/User/History';
 const Login = React.lazy(() => import('./pages/Login'));
 const Dashboard = React.lazy(() => import('./pages/Admin/Dashboard'));
 const Application = React.lazy(() => import('./pages/Application'));
@@ -25,6 +26,7 @@ function App() {
                 </Route>
                 <Route path="/" element={<Application />} />
                 <Route path="/user/token" element={<CreateToken />} />
+                <Route path="/user/history" element={<History />} />
               </Route>
               <Route element={<LazyLoad element={<PublicRoutes />} />}>
                 <Route path="/login" element={<Login />} />
