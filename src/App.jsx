@@ -12,6 +12,7 @@ import LazyLoad from './components/LazyLoad';
 import History from './pages/User/History';
 import BusStatus from './pages/User/BusStatus';
 import VerifierRoutes from './routes/VerifierRoutes';
+import Verify from './pages/Verifier/Verify';
 const Login = React.lazy(() => import('./pages/Login'));
 const Dashboard = React.lazy(() => import('./pages/Admin/Dashboard'));
 const Application = React.lazy(() => import('./pages/Application'));
@@ -26,7 +27,9 @@ function App() {
                 <Route element={<AdminRoutes />}>
                   <Route path="/admin" element={<Dashboard />} />
                 </Route>
-                <Route element={<VerifierRoutes />}></Route>
+                <Route element={<VerifierRoutes />}>
+                  <Route path="/vr/verify" element={<Verify />} />
+                </Route>
                 <Route path="/" element={<Application />} />
                 <Route path="/user/token" element={<CreateToken />} />
                 <Route path="/user/history" element={<History />} />
