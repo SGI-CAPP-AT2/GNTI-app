@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/database';
 import 'firebase/auth';
 import 'firebase/storage';
+import 'firebase/functions';
 const firebaseConfig = {
   apiKey: 'AIzaSyD5Wg0rqw3nTV2PK1CBc0rF5m1wl45tyTU',
   authDomain: 'gnti-at-adypsoe.firebaseapp.com',
@@ -16,3 +17,6 @@ const app = firebase.initializeApp(firebaseConfig);
 export const auth = app.auth();
 export const database = app.database();
 export const storage = app.storage();
+export const functions = app.functions();
+
+functions.useEmulator('127.0.0.1', 5001);

@@ -14,7 +14,12 @@ const Application = () => {
   return (
     <>
       <OptionPageBar text="Home" setAquiredHeight={setBarH} />
-      <Box width={width} height={height - barH} display={'flex'}>
+      <Box
+        width={width}
+        height={height - barH}
+        display={'flex'}
+        overflowY={'scroll'}
+      >
         <Box
           width={appWidth}
           marginLeft="auto"

@@ -1,13 +1,17 @@
 import { Box, Spinner } from '@primer/react';
 
-const Loader = () => {
+const Loader = ({ width }) => {
   return (
-    <Box display="flex" alignItems="center">
+    <Box
+      display="flex"
+      alignItems="center"
+      width={width || 'auto'}
+      marginTop={width ? 0 : 5}
+    >
       <Spinner
         size="large"
         sx={{
           margin: 'auto',
-          marginTop: 5,
         }}
       />
     </Box>

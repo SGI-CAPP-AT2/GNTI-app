@@ -17,3 +17,7 @@ code {
 * {
   font-family: 'Roboto Slab', serif;
 }
+*::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+}
