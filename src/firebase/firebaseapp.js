@@ -18,5 +18,5 @@ export const auth = app.auth();
 export const database = app.database();
 export const storage = app.storage();
 export const functions = app.functions();
-
+database.useEmulator('127.0.0.1', 9000);
 functions.useEmulator('127.0.0.1', 5001);
