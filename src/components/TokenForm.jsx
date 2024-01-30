@@ -35,7 +35,7 @@ const TokenForm = ({ res, width }) => {
   const submitPayment = async () => {
     setIsFetching(true);
     const resp = await fetch(
-      'http://127.0.0.1:5001/gnti-at-adypsoe/us-central1/verifyPayement',
+      'http://127.0.0.1:5001/gnti-at-adypsoe/us-central1/gatewayVerify',
       {
         method: 'POST',
         headers: {
