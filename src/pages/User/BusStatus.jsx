@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import OptionPageBar from '../../components/OptionPageBar';
 import { useScreen } from '../../context/screen.context';
-import { useCallback, useEffect, useState } from 'react';
-import { Box, Button, FormControl, TextInput } from '@primer/react';
+import { useState } from 'react';
+import { Box, Button, TextInput } from '@primer/react';
 import ListView from '../../components/ListView';
 import { GitCommitIcon } from '@primer/octicons-react';
 import Loader from '../../components/Loader';
 const BusStatus = () => {
-  const { height, width } = useScreen();
+  const { width } = useScreen();
   const [_, setBarH] = useState(0);
   const [searchRes, setSearchResults] = useState(null);
   const [searchInputVal, setSearchInputVal] = useState('');
