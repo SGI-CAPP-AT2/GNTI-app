@@ -18,7 +18,7 @@ const AfterScan = ({ height, width, bmfq }) => {
     if (!isCreatingSession) {
       const mn = async () => {
         const response = await fetch(
-          'http://127.0.0.1:5001/gnti-at-adypsoe/us-central1/busApi?q=RETURN_ALL_ROUTES_1109'
+          'https://busapi-nycezhdh5a-uc.a.run.app?q=RETURN_ALL_ROUTES_1109'
         );
         const allRoutes = await response.json();
         setAllRoutes(allRoutes);

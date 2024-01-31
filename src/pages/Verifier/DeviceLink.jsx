@@ -1,6 +1,5 @@
 import { Box } from '@primer/react';
 import { useEffect, useState } from 'react';
-import QrReader from 'react-qr-scanner';
 import OptionPageBar from '../../components/OptionPageBar';
 import { useNavigate } from 'react-router-dom';
 import { useScreen } from '../../context/screen.context';
@@ -8,6 +7,7 @@ import AfterScan from './components/AfterScan';
 import { useProfile } from '../../context/profile.context';
 import { database } from '../../firebase/firebaseapp';
 import Loader from '../../components/Loader';
+import { QrScanner } from '@yudiel/react-qr-scanner';
 const DeviceLink = () => {
   const [isScanning, setIsScanning] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
@@ -79,13 +79,10 @@ const DeviceLink = () => {
             borderColor={'border.subtle'}
             borderRadius={'30px'}
           >
-            <QrReader
-              style={{
-                height: appWidth,
-                display: 'flex',
-              }}
-              delay={100}
-              onScan={scanning}
+            <QrScanner
+              style={{ height: '100%' }}
+              tracker={true}
+              onResult={scanning}
               onError={() => {}}
             />
           </Box>

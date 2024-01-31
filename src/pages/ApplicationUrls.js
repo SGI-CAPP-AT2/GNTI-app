@@ -7,7 +7,6 @@ import {
   RepoIcon,
   CodescanCheckmarkIcon,
   CheckIcon,
-  UnlinkIcon,
   LinkIcon,
   GitPullRequestIcon,
 } from '@primer/octicons-react';

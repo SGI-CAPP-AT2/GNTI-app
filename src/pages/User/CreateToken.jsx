@@ -1,6 +1,6 @@
 import { Box } from '@primer/react';
 import { useState } from 'react';
-import QrReader from 'react-qr-scanner';
+import { QrScanner } from '@yudiel/react-qr-scanner';
 import OptionPageBar from '../../components/OptionPageBar';
 import { useNavigate } from 'react-router-dom';
 import { useScreen } from '../../context/screen.context';
@@ -52,13 +52,10 @@ const CreateToken = () => {
             borderColor={'border.subtle'}
             borderRadius={'30px'}
           >
-            <QrReader
-              style={{
-                height: appWidth,
-                display: 'flex',
-              }}
-              delay={100}
-              onScan={scanning}
+            <QrScanner
+              style={{ height: '100%' }}
+              tracker={true}
+              onResult={scanning}
               onError={() => {}}
             />
           </Box>
