@@ -34,16 +34,13 @@ const TokenForm = ({ res, width }) => {
   };
   const submitPayment = async () => {
     setIsFetching(true);
-    const resp = await fetch(
-      'http://127.0.0.1:5001/gnti-at-adypsoe/us-central1/gatewayVerify',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userid: profile.uid, verifiedPayment: fair }),
-      }
-    );
+    const resp = await fetch('https://gatewayverify-nycezhdh5a-uc.a.run.app', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userid: profile.uid, verifiedPayment: fair }),
+    });
     const text = await resp.text();
     setIsFetching(false);
     console.log(text);

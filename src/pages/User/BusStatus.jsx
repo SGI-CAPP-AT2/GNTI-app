@@ -18,8 +18,7 @@ const BusStatus = () => {
   const search = async () => {
     setIsLoading(true);
     const res = await fetch(
-      'http://127.0.0.1:5001/gnti-at-adypsoe/us-central1/busApi?q=' +
-        searchInputVal
+      'https://busapi-nycezhdh5a-uc.a.run.app?q=' + searchInputVal
     );
     setLastQuery(searchInputVal);
     const json__sr = await res.json();
