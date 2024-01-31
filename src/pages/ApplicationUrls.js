@@ -83,11 +83,4 @@ export const adminOptions = [
     icon: CpuIcon,
     url: '/admin/set_device',
   },
-  {
-    text: 'Block a device',
-    sub: 'Immediately block a device',
-    id: 'blck_dev',
-    icon: UnlinkIcon,
-    url: '/admin/block_device',
-  },
 ];
