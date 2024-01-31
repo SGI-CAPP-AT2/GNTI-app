@@ -47,7 +47,7 @@ export const verifierOptions = [
     url: '/vr/link_device',
   },
   {
-    text: 'set route status',
+    text: 'set session status',
     sub: 'Change the status of bus & device (Set Current Stop)',
     icon: GitPullRequestIcon,
     id: 'route_state',
