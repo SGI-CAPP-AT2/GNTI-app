@@ -60,12 +60,16 @@ const SetStatus = () => {
   }, [bottomSheet, height, isLoading, alreadyLinked]);
   const setSessionStatus = async () => {
     setIsLoading(true);
+    const selIndex = parseInt(selectedIndex);
     const sessionRef = database.ref('/sessions/' + sessionId);
-    if (selectedIndex == -1) {
-      await sessionRef.child('index').set('inactive');
+    const profileRef = database.ref('/profiles/' + profile.uid);
+    if (selIndex == -1 || routeMap.length - 1 == selIndex) {
+      await sessionRef.child('state').set('inactive');
+      await profileRef.child('session_linked').set(null);
+      navigate('/');
     }
-    if (selectedIndex != -1 && selectedIndex < routeMap.length) {
-      await sessionRef.child('index').set(selectedIndex);
+    if (selIndex != -1 && selIndex < routeMap.length) {
+      await sessionRef.child('index').set(selIndex);
     }
     setIsLoading(false);
   };

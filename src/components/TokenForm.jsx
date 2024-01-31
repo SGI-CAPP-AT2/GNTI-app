@@ -61,6 +61,7 @@ const TokenForm = ({ res, width }) => {
       startIssueSession({ bmfq_id }).then(res => {
         setIsFetching(false);
         setResults(res);
+        console.log(res);
       });
       return () => {};
     }, [res]);
