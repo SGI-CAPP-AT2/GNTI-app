@@ -122,8 +122,13 @@ const TokenForm = ({ res, width }) => {
   } catch (e) {
     console.log(e);
     return (
-      <Box textAlign={'center'}>
-        Unexpected Error Occured Check if the QR Code is valid
+      <Box margin={'auto'}>
+        Error Occured:
+        <pre>
+          1. Check the QR Code you scanned <br />
+          2. Check if the session is started on the QR Device <br />
+          3. If you think it{"'"}s System Error, Report it to Representative.
+        </pre>
       </Box>
     );
   }
