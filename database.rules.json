@@ -2,13 +2,31 @@
   "rules": {
     "profiles": {
       "$user_id": {
-        ".read": "$user_id === auth.uid",
+        ".read": "$user_id === auth.uid || auth.token.admin === true",
         ".write": "$user_id === auth.uid"
       }
     },
     "sessions": {
+      ".read": "auth.token.admin === true",
+      ".write": "auth.token.admin === true",
       "$sessid": {
-        ".read": "$user_id === auth.uid"
+        ".read": "auth.token.verifier === true",
+        ".write": "auth.token.verifier === true"
+      }
+    },
+    "BMfQs": {
+      ".read": "auth.token.admin === true",
+      ".write": "auth.token.admin === true",
+      "$bmfq_id": {
+        ".read": "auth.token.verifier === true",
+        ".write": "auth.token.verifier === true"
+      }
+    },
+    "routes": {
+      ".read": "auth.token.admin === true",
+      ".write": "auth.token.admin === true",
+      "$rid": {
+        ".read": "auth.token.verifier === true"
       }
     },
     ".read": false,
