@@ -3,6 +3,10 @@ import { useProfile } from '../context/profile.context';
 
 const VerifierRoutes = () => {
   const { profile } = useProfile();
-  return profile.isAdmin ? <Outlet /> : <Navigate to="/" />;
+  return profile.isAdmin || profile.isVerifier ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/" />
+  );
 };
 export default VerifierRoutes;

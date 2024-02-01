@@ -7,19 +7,21 @@ export const ProfileProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     let userRef;
-    const authUnsub = auth.onAuthStateChanged(authObj => {
+    const authUnsub = auth.onAuthStateChanged(async authObj => {
       if (authObj) {
         //(authObj);
         userRef = database.ref(`/profiles/${authObj.uid}`);
+        const idTokenRes = await authObj.getIdTokenResult();
         userRef.on('value', snap => {
-          const { createdAt, name, isAdmin = null } = snap.val();
+          const { createdAt, name } = snap.val();
           const data = {
             uid: authObj.uid,
             email: authObj.email,
             avatar: authObj.photoURL,
             name,
             createdAt,
-            isAdmin,
+            isAdmin: idTokenRes.claims.admin,
+            isVerifier: idTokenRes.claims.verifier,
           };
           setProfile(data);
           setIsLoading(false);
