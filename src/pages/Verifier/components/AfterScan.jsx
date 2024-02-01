@@ -13,6 +13,7 @@ const AfterScan = ({ height, width, bmfq }) => {
   const bottomSheet = useRef(null);
   const [btmShtHgt, setBtmHeigh] = useState(0);
   const [isCreatingSession, setIsCreatingSession] = useState(false);
+  const [deviceHaveSession, setDeviceHaveSession] = useState(false);
   const { profile } = useProfile();
   useEffect(() => {
     if (!isCreatingSession) {
@@ -43,6 +44,20 @@ const AfterScan = ({ height, width, bmfq }) => {
       const deviceRef = database.ref('/BMfQs/' + bmfq);
       const profileRef = database.ref('/profiles/' + profile.uid);
       const sessionSnap = await sessionsRef.once('value');
+      const devicesSessionSnap = await deviceRef.child('session').once('value');
+      if (devicesSessionSnap.val()) {
+        const deviceSessionSnap = await sessionsRef
+          .child(devicesSessionSnap.val())
+          .once('value');
+        if (deviceSessionSnap.val()) {
+          const { state } = deviceSessionSnap.val();
+          if (state == 'active') {
+            setDeviceHaveSession(true);
+            setIsLoading(false);
+            return;
+          }
+        }
+      }
       const id = sessionSnap.numChildren() + 1;
       await sessionsRef.child(id).set({
         id,
@@ -65,29 +80,37 @@ const AfterScan = ({ height, width, bmfq }) => {
       )}
       {!isLoding && (
         <>
-          <Box height={height - btmShtHgt - 10}>
-            <RadioGroup name="choiceGroup" onChange={setRouteFromGroup}>
-              <RadioGroup.Label>
-                Choose the route to start session on:{' '}
-              </RadioGroup.Label>
-              {allRoutes.map(({ name, id }) => (
-                <FormControl key={id}>
-                  <Radio value={id} />
-                  <FormControl.Label>{id + ' ' + name}</FormControl.Label>
-                </FormControl>
-              ))}
-            </RadioGroup>
-          </Box>
-          <Box ref={el => (bottomSheet.current = el)} display={'flex'}>
-            <Box>
-              <Button variant="danger" onClick={() => navigate('/')}>
-                Cancel
-              </Button>
+          {!deviceHaveSession ? (
+            <>
+              <Box height={height - btmShtHgt - 10}>
+                <RadioGroup name="choiceGroup" onChange={setRouteFromGroup}>
+                  <RadioGroup.Label>
+                    Choose the route to start session on:{' '}
+                  </RadioGroup.Label>
+                  {allRoutes.map(({ name, id }) => (
+                    <FormControl key={id}>
+                      <Radio value={id} />
+                      <FormControl.Label>{id + ' ' + name}</FormControl.Label>
+                    </FormControl>
+                  ))}
+                </RadioGroup>
+              </Box>
+              <Box ref={el => (bottomSheet.current = el)} display={'flex'}>
+                <Box>
+                  <Button variant="danger" onClick={() => navigate('/')}>
+                    Cancel
+                  </Button>
+                </Box>
+                <Box marginLeft={'auto'}>
+                  <Button onClick={createSession}>Continue</Button>
+                </Box>
+              </Box>
+            </>
+          ) : (
+            <Box display={'flex'} width={width}>
+              <Box margin={'auto'}>Device already have ongoing session.</Box>
             </Box>
-            <Box marginLeft={'auto'}>
-              <Button onClick={createSession}>Continue</Button>
-            </Box>
-          </Box>
+          )}
         </>
       )}
     </Box>

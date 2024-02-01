@@ -32,15 +32,14 @@ const Application = () => {
             view={View.gridView}
             options={userOptions}
           />
-          {profile.isAdmin ||
-            (profile.isVerifier && (
-              <SectionHomePage
-                width={appWidth}
-                title={'Bus Management Options'}
-                view={View.listView}
-                options={verifierOptions}
-              />
-            ))}
+          {(profile.isAdmin || profile.isVerifier) && (
+            <SectionHomePage
+              width={appWidth}
+              title={'Bus Management Options'}
+              view={View.listView}
+              options={verifierOptions}
+            />
+          )}
           {profile.isAdmin && (
             <SectionHomePage
               width={appWidth}
