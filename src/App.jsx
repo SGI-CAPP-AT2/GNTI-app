@@ -1,4 +1,4 @@
-import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, BrowserRouter } from 'react-router-dom';
 import { lazy } from 'react';
 import CommonLayout from './components/CommonLayout';
 import { ThemeProvider } from '@primer/react';
@@ -26,7 +26,7 @@ const Application = lazy(() => import('./pages/Application'));
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ThemeProvider colorMode="auto">
         <ProfileProvider>
           <CommonLayout>
@@ -61,7 +61,7 @@ function App() {
           </CommonLayout>
         </ProfileProvider>
       </ThemeProvider>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
