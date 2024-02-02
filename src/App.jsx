@@ -56,6 +56,10 @@ function App() {
                 path="/docs/:docname"
                 element={<LazyLoad element={<Document />} />}
               />
+              <Route
+                path="/create_token"
+                element={<Navigate to={'/user/token'} />}
+              />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </CommonLayout>
