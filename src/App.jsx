@@ -19,7 +19,6 @@ const SetStatus = lazy(() => import('./pages/Verifier/SetStatus'));
 const AddRoute = lazy(() => import('./pages/Admin/AddRoute'));
 const DeleteRoute = lazy(() => import('./pages/Admin/DeleteRoute'));
 const SetRole = lazy(() => import('./pages/Admin/SetRole'));
-const SetDevice = lazy(() => import('./pages/Admin/SetDevice'));
 const BlockDevice = lazy(() => import('./pages/Admin/BlockDevice'));
 const Login = lazy(() => import('./pages/Login'));
 const Application = lazy(() => import('./pages/Application'));
@@ -36,7 +35,6 @@ function App() {
                   <Route path="/admin/add_route" element={<AddRoute />} />
                   <Route path="/admin/delete_route" element={<DeleteRoute />} />
                   <Route path="/admin/set_role" element={<SetRole />} />
-                  <Route path="/admin/set_device" element={<SetDevice />} />
                   <Route path="/admin/block_device" element={<BlockDevice />} />
                 </Route>
                 <Route element={<VerifierRoutes />}>

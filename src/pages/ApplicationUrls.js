@@ -75,11 +75,4 @@ export const adminOptions = [
     icon: PasskeyFillIcon,
     url: '/admin/set_role',
   },
-  {
-    text: 'Setup Device',
-    sub: 'Setup new BMfQ Device',
-    id: 'crt_BMfQ',
-    icon: CpuIcon,
-    url: '/admin/set_device',
-  },
 ];
